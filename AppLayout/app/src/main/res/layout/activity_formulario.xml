@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F00"
+        android:background="#EEE"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -33,38 +33,49 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textNome"/>
+            android:text="@string/textNome"
+            style="@style/styleTextos"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/textNomeHint"
-            android:inputType="textCapWords"/>
+            android:inputType="textCapWords"
+            style="@style/styleFormulario"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textTelefone"/>
+            android:text="@string/textTelefone"
+            style="@style/styleTextos"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/textTelefoneHint"
-            android:inputType="phone"/>
+            android:inputType="phone"
+            style="@style/styleFormulario"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textTurno"/>
+            android:text="@string/textTurno"
+            style="@style/styleTextos"/>
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textNanha"/>
+                android:text="@string/textNanha"
+                style="@style/styleFormulario"/>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -75,7 +86,25 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textNoite"/>
+                android:text="@string/textNoite"
+                style="@style/styleFormulario"/>
         </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textEstado"
+                style="@style/styleTextos"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/arrayEstados"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 </ScrollView>

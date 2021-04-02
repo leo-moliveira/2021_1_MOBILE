@@ -11,6 +11,8 @@
     <string name="textNanha">Morning </string>
     <string name="textNoite">Night </string>
 
+    <string name="textEstado">State: </string>
+
     <string-array name="arrayEstados">
         <item>Select...</item>
         <item>PR</item>

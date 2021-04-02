@@ -11,6 +11,7 @@
     <string name="textNanha">Manha </string>
     <string name="textNoite">AppLayout</string>
 
+    <string name="textEstado">"Estado: "</string>
     <string-array name="arrayEstados">
         <item>Selecione...</item>
         <item>PR</item>
