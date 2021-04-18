@@ -11,12 +11,15 @@
     <string name="textNanha">Manha </string>
     <string name="textNoite">Noite </string>
 
-    <string name="textEstado">"Estado: "</string>
+    <string name="textEstado">Estado: </string>
     <string-array name="arrayEstados">
         <item>Selecione...</item>
         <item>PR</item>
         <item>RS</item>
         <item>SC</item>
     </string-array>
+    <string name="textAtividades">Atividades:</string>
+    <string name="textCaminhada">Caminhada:</string>
+    <string name="textCorrida">Corrida:</string>
 
 </resources>

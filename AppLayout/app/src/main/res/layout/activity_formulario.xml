@@ -105,6 +105,23 @@
                 android:entries="@array/arrayEstados"/>
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textAtividades"
+            style="@style/styleTextos"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textCaminhada"
+            style="@style/styleFormulario"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textCorrida"
+            style="@style/styleFormulario"/>
 
     </LinearLayout>
 </ScrollView>
