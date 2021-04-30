@@ -1,11 +1,13 @@
 package com.lmo.appfilmes;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -13,6 +15,7 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -44,7 +47,52 @@ public class MainActivity extends AppCompatActivity {
         });
 
         lvFilmes = findViewById(R.id.lvFilmes);
-        this.carregarFilmes();
+        configurarListView();
+
+    }
+
+    private void configurarListView(){
+        lvFilmes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Filme filmeSelecionado = listaFilmes.get(position);
+                Intent intent = new Intent(MainActivity.this, FormularioActivity.class);
+                intent.putExtra("acao", "editar");
+                intent.putExtra("id", filmeSelecionado.id);
+                startActivity(intent);
+            }
+        });
+
+        lvFilmes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Filme filmeSelecionado = listaFilmes.get(position);
+                excluirFilme(filmeSelecionado);
+                return true;
+            }
+        });
+    }
+
+    private void excluirFilme(Filme filme){
+        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        alerta.setIcon(android.R.drawable.ic_input_delete);
+        alerta.setTitle(R.string.txtAtencao);
+        alerta.setMessage("Confirma a exclusao do filme" + filme.nome + "?");
+        alerta.setNeutralButton("Cancelar",null);
+        alerta.setNegativeButton("SIM", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FilmeDAO.excluir(filme.id,MainActivity.this);
+                carregarFilmes();
+            }
+        });
+        alerta.show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        carregarFilmes();
     }
 
     private void carregarFilmes(){

@@ -19,4 +19,7 @@
         <item>2020</item>
         <item>2021</item>
     </string-array>
+    <string name="txtAtencao">Warning</string>
+
+
 </resources>
