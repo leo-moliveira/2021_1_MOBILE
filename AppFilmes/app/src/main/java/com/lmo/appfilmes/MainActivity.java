@@ -13,8 +13,16 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ListView lvFilmes;
+    private ArrayAdapter adapter;
+    private List<Filme> listaFilmes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        lvFilmes = findViewById(R.id.lvFilmes);
+        this.carregarFilmes();
+    }
+
+    private void carregarFilmes(){
+        listaFilmes = FilmeDAO.getFilmes(this);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,listaFilmes);
+        lvFilmes.setAdapter(adapter);
     }
 
     @Override

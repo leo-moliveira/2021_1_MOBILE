@@ -33,4 +33,9 @@ public class Filme {
             this.ano = 0;
         }
     }
+
+    @Override
+    public String toString() {
+        return id + " => " + nome + " | " + ano;
+    }
 }
